@@ -1,0 +1,290 @@
+/* CONTENT (Hero Section) */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  padding: 50px 80px;
+  align-items: center;
+}
+
+/* LEFT COLUMN */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 28px;
+  color: #000;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* BUTTON (CTA) */
+.cta {
+  background: var(--blue-cta);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 20px;
+  font-family: "Instrument Serif", serif;
+  border-radius: 50px;
+  cursor: pointer;
+  width: fit-content;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.2s;
+}
+
+.cta:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* CONTACT SECTION */
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  color: var(--green-dark);
+}
+
+.contact-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.link-facebook {
+  color: var(--blue-cta);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-email {
+  color: var(--green-dark);
+  text-decoration: none;
+}
+
+.link-facebook:hover,
+.link-email:hover {
+  text-decoration: underline;
+}
+
+/* RIGHT COLUMN */
+.right {
+  display: flex;
+  justify-content: center;
+}
+
+.image-collage {
+  width: 100%;
+  height: 450px;
+  border: 4px solid var(--green-light);
+  background: #f5fafa;
+}
+
+/* SECCIÓN WHY CHOOSE US */
+.features-section {
+  padding: 40px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.features-title, .section-title {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 32px;
+  color: #000;
+  margin: 0;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  color: var(--green-dark);
+}
+
+.sparkle {
+  font-size: 24px;
+  color: #FFD700;
+}
+
+/* SECCIÓN FEATURED SERVICES */
+.services-section {
+  padding: 0 80px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.services-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 250px;
+}
+
+.icon-wrapper {
+  background-color: var(--green-medium);
+  width: 100px;
+  height: 100px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.icon-wrapper img {
+  width: 90px;
+  height: 90px;
+}
+
+.service-name {
+  font-size: 24px;
+  color: var(--green-dark);
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+.service-desc {
+  font-size: 18px;
+  color: var(--button-blue);
+  line-height: 1.4;
+  max-width: 300px;
+}
+
+/* SECCIÓN WHERE WE WORK */
+.locations-section {
+  padding: 40px 80px;
+  margin-bottom: 40px;
+}
+
+.locations-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  width: 100%;
+}
+
+.location-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.location-column span {
+  font-family: "Instrument Serif", serif;
+  font-size: 18px;
+  color: var(--green-dark);
+  cursor: default;
+}
+
+.location-column span:hover {
+  opacity: 0.8;
+}
+
+/* =========================================
+   DISEÑO RESPONSIVO (MÓVILES)
+========================================= */
+@media (max-width: 768px) {
+  /* CONTENIDO PRINCIPAL */
+  .content {
+    grid-template-columns: 1fr; /* Una sola columna */
+    padding: 30px 20px;
+    gap: 30px;
+    text-align: center; /* Centra el texto de la frase */
+  }
+
+  .quote {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* Centrar el botón "Get a Free Estimate" */
+  .left {
+    align-items: center; 
+  }
+
+  .cta {
+    width: auto; 
+    padding: 12px 30px;
+  }
+
+  .contact {
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .contact-item {
+    justify-content: center;
+  }
+
+  /* COLLAGE */
+  .right {
+    width: 100%;
+    display: block;
+  }
+
+  .image-collage {
+    width: 100%;
+    height: 300px;
+  }
+
+  /* Padding General */
+  .features-section,
+  .services-section,
+  .locations-section {
+    padding: 30px 20px;
+  }
+
+  .locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .services-grid {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .service-card {
+      width: 100%;
+      max-width: 400px;
+  }
+}

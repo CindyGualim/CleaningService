@@ -1,0 +1,25 @@
+/* NAVBAR */
+.navbar {
+  background: var(--green-navbar);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 12px 0;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+/* Estado Activo y Hover */
+.nav-item.active,
+.nav-item:hover {
+  background-color: var(--green-dark);
+  text-decoration: none;
+}

@@ -1,0 +1,165 @@
+/* VARIABLES GLOBALES */
+:root {
+  --green-dark: #018575;
+  --green-light: #94CCC9;
+  --green-navbar: #7ED959;
+  --green-medium: #7ED959;
+  --blue-cta: #1CBEEB;
+}
+
+/* RESET BÁSICO */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Instrument Serif", serif;
+  background: linear-gradient(135deg, #ffffff 0%, #e0fbf8 50%, #d4f5f2 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.layout-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 16px;
+}
+
+.logo {
+  height: 170px;
+  width: auto;
+}
+
+.title {
+  font-size: 36px;
+  color: var(--green-light);
+  margin: 0;
+  font-weight: normal;
+}
+
+/* --- ANIMACIÓN DE BURBUJAS --- */
+.bubbles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background-color: var(--blue-cta);
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: float 15s infinite linear;
+}
+
+.bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 8s; opacity: 0.3; }
+.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 5s; animation-delay: 1s; opacity: 0.2; background-color: var(--green-light); }
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 10s; animation-delay: 2s; }
+.bubble:nth-child(4) { width: 80px; height: 80px; left: 50%; animation-duration: 11s; animation-delay: 0s; opacity: 0.1; background-color: var(--green-navbar); }
+.bubble:nth-child(5) { width: 35px; height: 35px; left: 65%; animation-duration: 6s; animation-delay: 1s; }
+.bubble:nth-child(6) { width: 45px; height: 45px; left: 80%; animation-duration: 8s; animation-delay: 3s; opacity: 0.2; background-color: var(--green-dark); }
+.bubble:nth-child(7) { width: 25px; height: 25px; left: 90%; animation-duration: 9s; animation-delay: 2s; }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.4; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- BOTÓN FLOTANTE SCROLL TO TOP --- */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 100;
+  
+  background-color: var(--green-navbar);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+  /* ESTADO INICIAL (OCULTO) */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  
+  /* Transición suave */
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s; 
+}
+
+/* ESTADO VISIBLE (Se activa con JS) */
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) invert(1);
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   DISEÑO RESPONSIVO (MÓVILES)
+========================================= */
+@media (max-width: 768px) {
+  /* HEADER: Mantener logo y título lado a lado */
+  .header {
+    flex-direction: row; /* Lado a lado */
+    align-items: center; 
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 10px;
+  }
+
+  .logo {
+    height: 120px; /* Logo más pequeño */
+    width: auto;
+  }
+
+  .title {
+    font-size: 30px; 
+    text-align: left; /* Título pegado al logo */
+    line-height: 1.0;
+  }
+
+  /* NAVBAR: Ajustes menores */
+  .navbar {
+    gap: 15px; 
+    flex-wrap: wrap; 
+    padding: 10px 0;
+  }
+
+  .nav-item {
+    font-size: 18px;
+    padding: 8px 12px; 
+  }
+}

@@ -191,18 +191,24 @@ async function uploadHomeImageHandler(request: Request, env: any) {
 // ---------------------------------------------------------
 // NUEVO HANDLER: GET HOME IMAGES (Listar imágenes)
 // ---------------------------------------------------------
-async function getHomeImagesHandler(request: Request, env: any) {
-  // 1. Verificamos Auth
-  const auth = await requireAuth(request, env);
-  if (auth.error) return auth.response;
+// En index.ts
 
-  // 2. Consultamos todas las imágenes ordenadas por la más nueva primero
-  const results = await env.cleaningservice_db
-    .prepare("SELECT id, url, uploaded_at FROM home_images ORDER BY id DESC")
+async function getHomeImagesHandler(request: Request, env: any) {
+  // 1. ELIMINAMOS LA VERIFICACIÓN DE AUTH AQUÍ
+  // Queremos que cualquier visitante pueda ver las fotos.
+  
+  // 2. Consultamos las imágenes (solo url)
+  // Cloudflare D1 .all() devuelve un objeto { results: [] }
+  const { results } = await env.cleaningservice_db
+    .prepare("SELECT id, url FROM home_images ORDER BY id DESC")
     .all();
 
-  // 3. Devolvemos la lista en formato JSON
+  // 3. Devolvemos la lista limpia
   return new Response(JSON.stringify(results), {
-    headers: { "Content-Type": "application/json" },
+    headers: { 
+      "Content-Type": "application/json",
+      // Importante: Permitir que el frontend acceda (CORS)
+      "Access-Control-Allow-Origin": "*" 
+    },
   });
 }
